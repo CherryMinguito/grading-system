@@ -21,10 +21,10 @@
                 <router-link to="/">LOGOUT</router-link><br>
             </nav>
         </div>
-    </div>
-    <h4>Grading System</h4>
+        
     <div>
         <h3>Grading System</h3>
+    </div>
     </div>
 </template>
 
