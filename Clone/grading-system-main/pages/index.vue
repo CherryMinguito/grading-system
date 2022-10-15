@@ -1,31 +1,38 @@
 <template>
-	<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
-    <form class="border shadow p-3 rouneded bg-light">
-      <h1 class="text-center p-3 text-dark">Login</h1>
-      <div class="row justify-content-center">
-              <div class="col mb-3">
-                  <label class="form-label text-dark">Username</label>
-                  <input class="form-control">
-              </div>
-      </div>
-      <div class="row justify-content-center">
-            <div class="col mb-3">
-              <label class="form-label text-dark">Password</label>
-              <input class="form-control">
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <h3 class="mb-5">Sign in</h3>
+
+            <div class="form-outline mb-4">
+              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+              <label class="form-label" for="typeEmailX-2">Email</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+              <label class="form-label" for="typePasswordX-2">Password</label>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-start mb-4">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+              <label class="form-check-label" for="form1Example3"> Remember password </label>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+
+            <hr class="my-4">
           </div>
-      </div>
-      <div class="row justify-cotent-center">
-        <div class="col mb-3">
-            <p class="text-dark">No Account yet? <a class="text-dark" href="">Sign Up</a></p>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col mb-3">
-            <b-button pill>Login</b-button>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
+</section>
 </template>
 
 <script>
