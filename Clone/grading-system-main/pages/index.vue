@@ -1,56 +1,31 @@
 <template>
-<!DOCTYPE html>
-<html>
-    
-<head>
-	<title>LOG IN</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center form_container">
-					<form>
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username or email">
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
-						</div>
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline">Remember Password</label>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="d-flex justify-content-center mt-3 login_container">
-					<button type="button" name="button" class="btn login_btn">Login</button>
-				</div>
-				<div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						Don't have an account? Sign Up
-					</div>
-					<div class="d-flex justify-content-center links">
-						<a href="#">Forgot your password?</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
-
+	<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
+    <form class="border shadow p-3 rouneded bg-light">
+      <h1 class="text-center p-3 text-dark">Login</h1>
+      <div class="row justify-content-center">
+              <div class="col mb-3">
+                  <label class="form-label text-dark">Username</label>
+                  <input class="form-control">
+              </div>
+      </div>
+      <div class="row justify-content-center">
+            <div class="col mb-3">
+              <label class="form-label text-dark">Password</label>
+              <input class="form-control">
+          </div>
+      </div>
+      <div class="row justify-cotent-center">
+        <div class="col mb-3">
+            <p class="text-dark">No Account yet? <a class="text-dark" href="">Sign Up</a></p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col mb-3">
+            <b-button pill>Login</b-button>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
