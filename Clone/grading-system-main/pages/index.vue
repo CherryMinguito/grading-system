@@ -1,64 +1,55 @@
 <template>
-<div class ="row">
-	<div class="col-md-6 mx-auto p-0">
-		<div class="card">
-<div class="login-box">
-	<div class="login-snip">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-space">
-			<div class="login">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input"  placeholder="Enter your username">
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>LOG IN</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="username or email">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember Password</label>
+							</div>
+						</div>
+					</form>
 				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Enter your password">
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn">Login</button>
 				</div>
-				<div class="group">
-					<input id="check" type="checkbox" class="check" checked>
-					<label for="check"><span class="icon"></span> Keep me Signed in</label>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign In">
-				</div>
-				<div class="hr"></div>
-				<div class="foot">
-					<a href="#">Forgot Password?</a>
-				</div>
-			</div>
-			<div class="sign-up-form">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" placeholder="Create your Username">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Create your password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" >
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="text" class="input" placeholder="Enter your email address">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
-				<div class="hr"></div>
-				<div class="foot">
-					<label for="tab-1">Already Member?</label>
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? Sign Up
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="#">Forgot your password?</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>   
-</div>
-</div>
-</div>
+</body>
+</html>
 
 </template>
 
