@@ -1,36 +1,18 @@
 <!-- Please remove this file from your project -->
 <template>
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
-    <form class="border shadow p-3 rouneded bg-light">
-      <h1 class="text-center p-3 text-dark">Login</h1>
-      <div class="row justify-content-center">
-              <div class="col mb-3">
-                  <label class="form-label text-dark">Username</label>
-                  <input class="form-control">
-              </div>
-      </div>
-      <div class="row justify-content-center">
-            <div class="col mb-3">
-              <label class="form-label text-dark">Password</label>
-              <input class="form-control">
-          </div>
-      </div>
-      <div class="row justify-cotent-center">
-        <div class="col mb-3">
-            <p class="text-dark">No Account yet? <a class="text-dark" href="">Sign Up</a></p>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col mb-3">
-            <b-button pill>Login</b-button>
-        </div>
-      </div>
-    </form>
+  <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
+    <Sidebar/>
+    <h1>This is a Home Page</h1>
   </div>
 </template>
 
 <script>
+import Sidebar from './Sidebar';
 export default {
-  name: 'NuxtTutorial'
+  name: 'NuxtTutorial',
+  name: 'HomePage',
+  components: {
+    Sidebar,
+  }
 }
 </script>
