@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container container-login">
         <form method="POST" action="dashboard">
             <input type="text" placeholder="Username">
             <input type="text" placeholder="Password">
@@ -10,11 +10,11 @@
 </template>
 <script>
 export default {
- 
+    name: 'HomePage'
 }
 </script>
 <style>
-    .container{
+    .container-login{
         box-shadow: 5px 8px 8px #888888;
         background-color: rgb(243, 240, 235);
         border-radius: 10px;

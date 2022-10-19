@@ -7,7 +7,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
-        <NuxtLink to="/index">Home</NuxtLink>
+        <NuxtLink to="/">Home</NuxtLink>
       </li>
       <li>
         <NuxtLink to="/dashboard">Dashboard</NuxtLink>
