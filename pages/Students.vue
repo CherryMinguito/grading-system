@@ -1,9 +1,9 @@
 <template>
-  <Products/>
+  <Students/>
 </template>
 
 <script>
 export default {
-  name: 'ProductsPage'
+  name: 'StudentsPage'
 }
 </script>
