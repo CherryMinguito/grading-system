@@ -1,9 +1,9 @@
 <template>
-  <div
-    class="container relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"
-  >
+  <div>
     <Sidebar />
-    <h1>This is Students Page</h1>
+    <div>
+      <b-table striped hover :items="studentList"></b-table>
+    </div>
     <li v-for="student in studentList" :key="student.id">
       {{ getfullname(student) }}
     </li>
@@ -19,28 +19,12 @@ export default {
   },
   data() {
     return {
-      studentList: [
-        {
-          firstname: "Neo Frank",
-          lastname: "Uy",
-          id: 1,
-        },
-        {
-          firstname: "Kazuya",
-          lastname: "Mishima",
-          id: 2,
-        },
-        {
-          firstname: "Jin",
-          lastname: "Kazuya",
-          id: 3,
-        },
-      ],
+      studentList: [],
     };
   },
   methods: {
     getfullname(student) {
-      return student.firstname + " " + student.lastname;
+      return this.studentList;
     },
   },
 };
