@@ -1,22 +1,18 @@
-<template>
-  <div>
-    <b-navbar type="dark" variant="dark">
-      <b-navbar-nav>
-        <b-nav-item href="/Home">Home</b-nav-item>
-
-        <!-- Navbar dropdowns -->
-        <b-nav-item-dropdown text="Students" right>
-          <b-dropdown-item href="/Insert">Insert</b-dropdown-item>
-          <b-dropdown-item href="">Delete</b-dropdown-item>
-          <b-dropdown-item href="#">Update</b-dropdown-item>
-          <b-dropdown-item href="/Students">List</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown text="User" right>
-          <b-dropdown-item href="#">Account</b-dropdown-item>
-          <b-dropdown-item href="#">Settings</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-navbar>
-  </div>
+<template id="navBar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/Home">Student Grading</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/Home"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/Students">Student</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/Tutorial">Tutorial</a>
+      </li>
+    </ul>
+  </nav>
 </template>
