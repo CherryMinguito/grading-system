@@ -6,7 +6,7 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <Sidebar />
+    <Navbar />
     <div class="container">
       <div>
         <b-button v-b-modal.modal-1 class="btn btn-primary">Add</b-button>
@@ -103,11 +103,11 @@
 </template>
 
 <script>
-import Sidebar from "./Sidebar.vue";
+import Navbar from "./Navbar.vue";
 export default {
   name: "StudentsPage",
   components: {
-    Sidebar,
+    Navbar,
   },
   created() {
     this.getStudents();

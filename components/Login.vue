@@ -9,7 +9,7 @@
       <div class="row justify-content-center">
         <div class="col mb-3">
           <label class="form-label text-dark">Username</label>
-          <input class="form-control" type="username"  />
+          <input class="form-control" type="username" />
         </div>
       </div>
       <div class="row justify-content-center">
