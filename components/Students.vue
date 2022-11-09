@@ -62,20 +62,18 @@
         <thead class="table-warning">
           <th>ID</th>
           <th>Firstname</th>
+          <th>Middlename</th>
           <th>Lastname</th>
           <th>Address</th>
-          <th>Date Enrolled</th>
           <th></th>
         </thead>
         <tbody>
           <tr v-for="(student, ctn) in studentList" :key="student.id">
-            <td>{{ count + 1 }}</td>
             <td>{{ student.id }}</td>
             <td>{{ student.firstname }}</td>
             <td>{{ student.middlename }}</td>
             <td>{{ student.lastname }}</td>
             <td>{{ student.Address }}</td>
-            <td>{{ student.dateAdded }}</td>
             <td>
               <button
                 type="button"
