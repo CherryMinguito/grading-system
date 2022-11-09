@@ -65,7 +65,8 @@
           <th>Middlename</th>
           <th>Lastname</th>
           <th>Address</th>
-          <th></th>
+          <th>Update</th>
+          <th>Delete</th>
         </thead>
         <tbody>
           <tr v-for="(student, ctn) in studentList" :key="student.id">
@@ -73,12 +74,12 @@
             <td>{{ student.firstname }}</td>
             <td>{{ student.middlename }}</td>
             <td>{{ student.lastname }}</td>
-            <td>{{ student.Address }}</td>
+            <td>{{ student.address }}</td>
             <td>
               <button
                 type="button"
                 id="btn_add"
-                class="btn btn-primary"
+                class="btn btn-success"
                 v-on:click="update()"
               >
                 Update
@@ -88,7 +89,7 @@
               <button
                 type="button"
                 id="btn_add"
-                class="btn btn-primary"
+                class="btn btn-danger"
                 v-on:click="delstud()"
               >
                 Delete
