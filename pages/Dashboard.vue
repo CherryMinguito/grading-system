@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import Students from '../components/Students.vue'
 export default {
 }
 </script>Students
