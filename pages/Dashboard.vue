@@ -8,4 +8,4 @@
 <script>
 export default {
 }
-</script>Students
+</script>

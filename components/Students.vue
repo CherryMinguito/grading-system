@@ -94,11 +94,11 @@
 <script>
 export default{
     name: 'Students',
-data(){
-    return{
-        studentList: []
-    }
-},
+    data(){
+        return{
+            studentList: []
+        }
+    },
     methods: {
         getFullDetails(student){
             return student.studId + " " + student.firstName + " " + student.lastName + " " + student.studAddress;
