@@ -76,14 +76,66 @@
             <td>{{ student.lastname }}</td>
             <td>{{ student.address }}</td>
             <td>
-              <button
-                type="button"
-                id="btn_add"
-                class="btn btn-success"
-                v-on:click="update()"
+              <b-button
+                v-b-modal.modal-edit
+                variant="info"
+                v-on:click="updatelist(student)"
+                >Update</b-button
               >
-                Update
-              </button>
+
+              <b-modal
+                class="modal"
+                id="modal-edit"
+                title="Edit Student"
+                hide-footer
+              >
+                <b-container>
+                  <b-row class="p-3">
+                    <input type="hidden" id="idet" />
+                    <b-col>
+                      <b-form-input
+                        v-model="fname"
+                        id="firstnameupd"
+                        placeholder="First Name"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col>
+                      <b-form-input
+                        v-model="mname"
+                        id="middlenameupd"
+                        placeholder="Middle Name"
+                      ></b-form-input>
+                    </b-col>
+                    <b-col>
+                      <b-form-input
+                        v-model="lname"
+                        id="lastnameupd"
+                        placeholder="Last Name"
+                      ></b-form-input>
+                    </b-col>
+                  </b-row>
+                  <b-row class="mx-1 pb-3">
+                    <b-col>
+                      <b-form-input
+                        v-model="add"
+                        id="addressupd"
+                        placeholder="address"
+                      ></b-form-input>
+                    </b-col>
+                  </b-row>
+                </b-container>
+                <div id="modal-1___BV_modal_footer_" class="modal-footer">
+                  <button type="button" class="btn btn-danger">Cancel</button>
+                  <button
+                    type="button"
+                    id="btn_add"
+                    class="btn btn-success"
+                    v-on:click="updatestud()"
+                  >
+                    Update
+                  </button>
+                </div>
+              </b-modal>
             </td>
             <td>
               <button
@@ -156,6 +208,24 @@ export default {
       this.middlename = "";
       this.lastname = "";
       this.address = "";
+    },
+    updatelist(student, event) {
+      this.idet = student.id;
+      this.firstname = student.fname;
+      this.middlename = student.mname;
+      this.lastname = student.lname;
+      this.address = student.addr;
+    },
+    updatestud() {
+      for (var i = 0; i < this.studentList.length; i++) {
+        if (this.studentList[i].id === this.idet) {
+          this.studentList[i].firstName = this.fname;
+          this.studentList[i].middlename = this.mname;
+          this.studentList[i].lastName = this.lname;
+          this.studentList[i].address = this.add;
+        }
+      }
+      this.clear();
     },
   },
 };
