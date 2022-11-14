@@ -21,7 +21,9 @@
                     </div>
 
                     <div class="col-12 d-flex justify-content-center align-items-center ">
+                        <NuxtLink to="/Home">
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        </NuxtLink>
                     </div>
                 </form>
             </div>
