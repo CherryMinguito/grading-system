@@ -116,7 +116,7 @@ export default{
         {
             this.studentList.splice(count, 1);
         },
-        editStudent(student, event)
+        editStudent(student)
         {
             this.studId = student.studId;
             this.firstname = student.firstName
