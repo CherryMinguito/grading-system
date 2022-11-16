@@ -7,11 +7,5 @@
 </template>
 
 <script>
-import Sidebar from './Sidebar';
-export default {
-  name: 'DashboardPage',
-  components: {
-    Sidebar,
-  },
-}
+
 </script>
