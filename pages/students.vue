@@ -1,10 +1,15 @@
 <template>
-    <Students/>
-</template>
-
-<script>
+    <div>
+        <Sidebar/>
+        <Students/>
+    </div>
+  </template>
   
-export default {
-  name: 'StudentPage'
-}
-</script>
+  <script>
+  import Students from '../components/Students.vue';
+  import Sidebar from '../components/Sidebar.vue';
+  export default {
+      name: "StudentPage",
+      components: { Students , Sidebar }
+  }
+  </script>
