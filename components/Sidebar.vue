@@ -25,7 +25,7 @@ width: 200px;
 background-color: #f7edf4;
 position: relative;
 height: 100%;
-overflow: auto;
+width:15%;
 }
 
 .sidebar a {
@@ -51,11 +51,4 @@ width: 100%;
 height: 20px;
 }
 
-div.content {
-margin-left: 200px;
-padding: 1px 16px;
-height: 1000px;
-}
-
-
-</style>-->
+</style>
