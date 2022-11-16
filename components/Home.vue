@@ -28,12 +28,15 @@
     <br>
     {{editStud}}
     <li v-for="(item, id) in students" :key="item.id">{{item.id}} {{item.Fullname}}
+    <button @click="editStude(item)" :key="item.id">Assign</button>
     <button @click="updateStud()">Update</button>
     <button v-on:click="students.pop({id:item.id, Fullname: newStud})">Delete</button>
     </li>
   </ul>
 </div>
         </div>
+
+        <button @click="fetchStud()">Fetch</button>
   </div>
 </template>
 
@@ -57,10 +60,12 @@ div.container{
 <script>
 //studInput.reset();
 import Sidebar from "./sideBar.vue";
+import axios from 'axios';
 
 export default {
   //name: 'NuxtLink',
   //extends: Vue.component('RouterLink'),
+  mounted() { console.log(this.fetchStud()) },
 
   data() {
     return {
@@ -75,13 +80,20 @@ export default {
   },
 
   methods:{
-  
+
+    editStude(item, event){
+
+      this.idet = item.id;
+    },
+
     updateStud(){
-
-
+      
       for(var i = 0; i < this.students.length; i++)
                 {
+                  if(this.students[i].id === this.idet)
+                  {
                   this.students[i].Fullname = this.editStud;
+                  }
                 }
 
     },
@@ -89,9 +101,16 @@ export default {
     deleteStud(){
 
 
-    }
+    },
+
+    async fetchStud(){
+            const student= await this.$axios.$get('/getStudents')
+            return student
+        }
 
   },
+
+  
   
   name: 'HomePage',
   components: {
