@@ -3,10 +3,13 @@ const Router = require('koa-router');
 
 const app = new Koa();
 const router = new Router();
+const cors = require('@koa/cors');
+
+app.use(cors());
 
 router.get('/', (ctx, next) => {
     console.log(ctx.request);
-    ctx.body = "Hello"
+    ctx.body = "Hello Lyndon"
 });
 
 router.get('/getStudents', (ctx, next) =>{

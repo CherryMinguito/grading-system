@@ -38,6 +38,9 @@ export default {
       "/api": 'http://localhost:3002'
     },
   },
+  axios: {
+    baseUrl: 'http://localhost:3002/',
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap

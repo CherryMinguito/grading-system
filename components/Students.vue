@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="fetchStudents()">Test</button>
+        
         <br><br>
     <div class="container">
         <div>
@@ -56,6 +56,7 @@
                                     <button type="button" id="btn_add" class="btn btn-success" @click="updateStudent()" >Update</button>
                                 </div>
                             </b-modal>
+                            <button @click="fetchStudents()">Test</button>
     </div>
     
     </div>
@@ -65,9 +66,7 @@
 import axios from 'axios';
 export default{
     name: 'StudentsPage',
-mounted(){
-    console.log(this.fetchStudents())
-},
+mounted() { console.log(this.fetchStudents()) },
 data(){
     return{
         studentList: [
@@ -82,10 +81,7 @@ data(){
     }
 },
 methods: {
-    async fetchStudents(){
-        const students = await this.$axios.$get('/getStudents' )
-        return students
-    },
+    
     async addStudent(){
 
         var today = new Date();
@@ -139,7 +135,11 @@ methods: {
                 this.firstname = '';
                 this.lastname = '';
                 this.address = '';
-            }
+            },
+            async fetchStudents(){
+                const students = await this.$axios.$get('/getStudents' )
+                return students
+        }
 }
 }
 </script>
