@@ -64,13 +64,16 @@
                     </div>
             </b-modal>
         </div>
+        <button @click="fetchStudent()">Test</button>
     </div>
 </template>
   
 <script>
 import Sidebar from './Sidebar.vue'
+import axios from 'axios';
 export default {
     name: 'StudentsPage',
+    mounted() { console.log(this.fetchStudent()) },
     components: {
         Sidebar,
     },
@@ -103,14 +106,15 @@ export default {
     },
     methods: {
         getFullName(student) {
-            return student.id + " " +student.firstName + " " + student.lastName;
+            // return student.id + " " +student.firstName + " " + student.lastName;
+            return student.firstName + " " + student.lastName;
+
         },
         saveStudent(){
            //this.queueStudent.push({...this.StudentsList})
-           this.StudentsList.push({firstName:this.queueStudent.firstname, lastName:this.queueStudent.lastname, id:this.StudentsList.length+1})
-
-            // this.queueStudent=''
-        //    clearFields()
+            this.StudentsList.push({firstName:this.queueStudent.firstname, lastName:this.queueStudent.lastname, id:this.StudentsList.length+1})
+            this.queueStudent.firstname='';
+            this.queueStudent.lastname='';
             
         },
         testDisplay(data){
@@ -139,7 +143,8 @@ export default {
         this.$refs['modal-del'].hide()
          },
         clearFields(){
-            this.queueStudent=''
+            this.queueStudent.firstname='';
+            this.queueStudent.lastname='';
         },
         updateStudent(student){
             this.StudentsList.splice(this.StudentsList.indexOf(student), 1, {
@@ -147,41 +152,16 @@ export default {
             'lastName': this.queueStudent.lastname,
             'id':student.id,
           })
+
+            this.queueStudent.firstname='';
+            this.queueStudent.lastname='';
            
-            // const actions = {
-            //     updateCheckedEngagements(state, updatedEngagements = []) {
-            //         // Create list of ids, to simplify index matching
-            //         const ids = updatedEngagements.map(engagement => student.id)
-            //         state.engagements = state.engagements.map(engagement => {
-            //         // Check if updated engagement matches currently iterated one
-            //         const matchedIndex = ids.indexOf(student.id)
-            //         // If index matches, we shall replace current item with updated values
-            //         if (matchedIndex !== -1) {
-            //             return {
-            //             ...updatedEngagements[matchedIndex]
-            //             }
-            //         }
-            //         // Return previous value by default
-            //         return engagement
-            //         })
-            //     }
-            //     }
-
-            // this.$set(this.StudentsList, student, {firstname:this.queueStudent.firstname, lastName:this.queueStudent.lastname})
-            // const val = {
-            //     firstname:this.queueStudent.firstname, 
-            //     lastName:this.queueStudent.lastname
-            // }
-            // this.StudentsList.set(student,val)
-            // const student ={
-            //     firstname: this.queueStudent.firstName,
-            //     lastname:this.queueStudent.lastName
-
-            //     this.
-            // }
-
-            // console.log(val)
+        },
+        async fetchStudent(){
+            const students= await this.$axios.$get('/getStudents')
+            return students
         }
+       
         
     }
 }
