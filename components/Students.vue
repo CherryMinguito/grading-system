@@ -1,5 +1,7 @@
 <template>
-    <div><br><br>
+    <div>
+        <button @click="fetchStudents()">Test</button>
+        <br><br>
     <div class="container">
         <div>
             <b-button v-b-modal.modal-1>Add New Student +</b-button>
@@ -55,22 +57,36 @@
                                 </div>
                             </b-modal>
     </div>
+    
     </div>
+    
 </template>
 <script>
+import axios from 'axios';
 export default{
     name: 'StudentsPage',
-
+mounted(){
+    console.log(this.fetchStudents())
+},
 data(){
     return{
-        studentList: []
+        studentList: [
+            {
+                id: "1190457",
+                firstName: "Lyndon",
+                lastName: "Dizon",
+                studAddress: "Apas, Cebu City",
+                dateAdded: "11/06/2022"
+            }
+        ]
     }
 },
 methods: {
-    getFullDetails(student){
-        return student.id + " " + student.firstName + " " + student.lastName + " " + student.studAddress + " " + student.dateAdded;
+    async fetchStudents(){
+        const students = await this.$axios.$get('/getStudents' )
+        return students
     },
-    addStudent(){
+    async addStudent(){
 
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -81,9 +97,9 @@ methods: {
 
         let student = {
             id: Date.now(),
-            firstName: this.firstname,
-            lastName: this.lastname,
-            studAddress: this.address,
+            firstName: await this.firstname,
+            lastName: await this.lastname,
+            studAddress: await this.address,
             dateAdded: today
         }
         this.studentList.push(student);
