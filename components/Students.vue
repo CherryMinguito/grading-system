@@ -19,8 +19,10 @@
                 <input type="text" v-model="studentList.lastname"  name="lname" class="form-control mb-2" id="lname" placeholder="Last name:">
                 Last Name: {{studentList.lastname}}
                 </div>
-                <div class="col-auto">
-                <button type="button" v-on:click="submitForm()" class="btn btn-primary mb-2">Submit</button>
+                <div class="col">
+                    <div class="float-right">
+                        <button type="button" v-on:click="submitForm()" class="btn btn-primary mb-2">Submit</button>
+                    </div>
                 </div>
             </div>
             </form>
@@ -32,6 +34,7 @@
                 <div class="col-auto">
                 <label class="sr-only" for="inlineFormInput">First Name:</label>
                 <input type="text" v-model="studentList.firstname" name="fname" class="form-control mb-2" id="fname" placeholder="First name:">
+                <h2>{{studentList.id}}</h2>
                 First Name: {{studentList.firstname}}
                 </div>
                 <div class="col-auto">
@@ -40,7 +43,7 @@
                 Last Name: {{studentList.lastname}}
                 </div>
                 <div class="col-auto">
-                <button type="button" v-on:click="updateStud()" class="btn btn-primary mb-2">Update</button>
+                <button type="button" v-on:click="updateStud(index)" class="btn btn-primary mb-2">Update</button>
                 </div>
             </div>
             </form>
@@ -61,7 +64,7 @@
                 <th class="th-lg">Actions</th>
             </thead>
             <tbody>
-                <tr v-for="(student, index) in studentList" :key="student.id">
+                <tr v-for="student, index in studentList" :key="student.id">
                     <td>{{student.id}}</td>
                     <td>{{student.firstName}}</td>
                     <td>{{student.lastName}}</td>
@@ -74,14 +77,13 @@
         </table> 
         </div>
 
-            
-
-        
         
     </div>
   </template>
   
   <script>
+  import { clear } from 'console';
+import { send } from 'q';
   import Sidebar from './Sidebar';
   export default {
     name: 'StudentsPage',
@@ -97,8 +99,8 @@
                 lastname:'',
                 id:'',
             },
+            send:'',
            
-         
         }
     },
     methods: {
@@ -112,7 +114,8 @@
             lastName: this.studentList.lastname,
         }
         this.studentList.push(student);
-    },
+        this.clear();
+        },
         deleteStudent(index){
             this.studentList.splice(index, 1);
         },
@@ -122,14 +125,26 @@
             this.lastname = student.lastName;
         },
         updateStud(index){
-            let student = {
-            id: this.id,
+             let student = {
+             id: this.id,
             firstName: this.studentList.firstname,
             lastName: this.studentList.lastname,
-        }
-        this.studentList.push(student);
-        this.studentList.splice(index,1);
-        
+         }
+         this.studentList.push(student);
+         this.studentList.splice(index, 1);
+         this.clear();
+        // this.studentList.splice(this.studentList.indexOf(student),1, {
+        //     'firstName': this.studentList.firstname,
+        //     'lastname' : this.studentList.lastname,
+        //     'id' : this.studentList.id,
+        // })
+        }, 
+        clear(){
+            this.studentList.firstname='';
+            this.studentList.lastname='';
+        },
+        sendID(){
+            this.send = this.student;
         }
     }
 }
