@@ -1,36 +1,102 @@
-<!-- Please remove this file from your project -->
-<template>
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
-    <form class="border shadow p-3 rouneded bg-light">
-      <h1 class="text-center p-3 text-dark">Login</h1>
-      <div class="row justify-content-center">
-              <div class="col mb-3">
-                  <label class="form-label text-dark">Username</label>
-                  <input class="form-control">
-              </div>
-      </div>
-      <div class="row justify-content-center">
-            <div class="col mb-3">
-              <label class="form-label text-dark">Password</label>
-              <input class="form-control">
-          </div>
-      </div>
-      <div class="row justify-cotent-center">
-        <div class="col mb-3">
-            <p class="text-dark">No Account yet? <a class="text-dark" href="">Sign Up</a></p>
+
+  <template>
+  <div>
+  <Sidebar/>
+        <div class="container">
+          <h1>This is a Home Page</h1>
+          <div>
+  <!-- Using modifiers -->
+  <b-button v-b-modal.my-modal>Click Me!</b-button>
+
+  <!-- The modal -->
+  <b-modal id="my-modal">Add Student:
+    <br>
+    <input v-on:keyup.enter="students.push({id:students.length + 1, Fullname: newStud})"
+     v-model="newStud" placeholder="Full Name: " />
+    <button v-on:click="students.push({id:students.length + 1, Fullname: newStud})"
+            class="btn btn-secondary">
+            Add Students</button>
+    
+
+  </b-modal>
+  <br>
+  <br>
+  <b-form-input v-model="editStud" id="idet" placeholder="Full Name"></b-form-input>
+  <br>
+  <ul>
+    {{newStud}}
+    <br>
+    {{editStud}}
+    <li v-for="(item, id) in students" :key="item.id">{{item.id}} {{item.Fullname}}
+    <button @click="updateStud()">Update</button>
+    <button v-on:click="students.pop({id:item.id, Fullname: newStud})">Delete</button>
+    </li>
+  </ul>
+</div>
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col mb-3">
-            <b-button pill>Login</b-button>
-        </div>
-      </div>
-    </form>
   </div>
 </template>
 
+<style>
+div.container{
+  height: 100px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+</style>
+
+
+
+
 <script>
+//studInput.reset();
+import Sidebar from "./sideBar.vue";
+
 export default {
-  name: 'NuxtTutorial'
+  //name: 'NuxtLink',
+  //extends: Vue.component('RouterLink'),
+
+  data() {
+    return {
+     // updateStud: '',
+      editStud:'',
+      newStud: '',
+      students: [
+      {id: 1, Fullname: 'Osmand Hadjiamer S. Decampong'}
+      ]
+      
+    }
+  },
+
+  methods:{
+  
+    updateStud(){
+
+
+      for(var i = 0; i < this.students.length; i++)
+                {
+                  this.students[i].Fullname = this.editStud;
+                }
+
+    },
+
+    deleteStud(){
+
+
+    }
+
+  },
+  
+  name: 'HomePage',
+  components: {
+    Sidebar,
+  }
+
 }
 </script>
