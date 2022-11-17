@@ -1,9 +1,9 @@
 <template>
     <Students/>
-  </template>
-  
-  <script>
-  export default {
-    name: 'StudentsPage'
-  }
-  </script>
+</template>
+
+<script>
+export default {
+
+}
+</script>
