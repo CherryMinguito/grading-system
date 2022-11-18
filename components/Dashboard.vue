@@ -1,17 +1,24 @@
-<!-- Please remove this file from your project -->
 <template>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-      <Sidebar/>
-      <h1>This is Dashboard Page</h1>
-    </div>
-  </template>
-  
-  <script>
-  import Sidebar from './Sidebar';
-  export default {
-    name: 'DashboardPage',
-    components: {
-      Sidebar,
-    },
+  <div>
+      
+  <div>
+      <h3 class="welcome">Welcome to Dashboard</h3>
+  </div>
+  </div>
+</template>
+
+<script>
+  export default{
+
   }
-  </script>
+</script>
+<style>
+.btn{
+  margin-left: 1100px;
+}
+.welcome{
+  margin-left: 45%;
+  margin-top: 10%;
+
+}
+</style>

@@ -1,11 +1,11 @@
 <template>
-  <Home/>
+  <LoginPage/>
 </template>
 
 <script>
-import Login from '../components/Login.vue';
+import LoginPage from '../components/LoginPage.vue';
 export default {
     name: "IndexPage",
-    components: { Login }
+    components: { LoginPage }
 }
 </script>
