@@ -57,9 +57,14 @@
 </template>
 <script>
 import Sidebar from './Sidebar';
+import axios from 'axios';
 export default
 {
     name: 'StudentsPage',
+    mounted() { console.log(this.fetchStudent()) },
+    components: {
+        Sidebar,
+    },
     data(){
     return{
         studentList: []
@@ -115,6 +120,10 @@ methods: {
         this.firstname = '';
         this.lastname = '';
         this.address = '';
+    },
+    async fetchStudent(){
+        const students= await this.$axios.$get('/getStudents')
+        return students
     }
 }
 }
