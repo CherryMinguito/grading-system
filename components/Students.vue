@@ -102,44 +102,44 @@ methods: {
         this.updateStorage();
         this.clear();
     },
-            editStudent(student, event)
+    editStudent(student, event)
+    {
+        this.idet = student.id;
+        this.firstname = student.firstName
+        this.lastname = student.lastName;
+        this.address = student.studAddress;
+    },
+    updateStudent()
+    {
+        for(var i = 0; i < this.studentList.length; i++)
+        {
+            if(this.studentList[i].id === this.idet)
             {
-                this.idet = student.id;
-                this.firstname = student.firstName
-                this.lastname = student.lastName;
-                this.address = student.studAddress;
-            },
-            updateStudent()
-            {
-                for(var i = 0; i < this.studentList.length; i++)
-                {
-                    if(this.studentList[i].id === this.idet)
-                    {
-                        this.studentList[i].firstName = this.firstname;
-                        this.studentList[i].lastName = this.lastname;
-                        this.studentList[i].studAddress = this.address;
-                    }
-                }
-                this.clear();
-                this.updateStorage();
-            },
-            deleteStudent(count)
-            {
-                this.studentList.splice(count, 1);
-                this.updateStorage();
-            },
-            updateStorage(){
-                localStorage.setItem("students", JSON.stringify(this.studentList));
-            },
-            clear(){
-                this.firstname = '';
-                this.lastname = '';
-                this.address = '';
-            },
-            async fetchStudents(){
-                const students = await this.$axios.$get('/getStudents' )
-                return students
+                this.studentList[i].firstName = this.firstname;
+                this.studentList[i].lastName = this.lastname;
+                this.studentList[i].studAddress = this.address;
+            }
         }
+        this.clear();
+        this.updateStorage();
+    },
+    deleteStudent(count)
+    {
+        this.studentList.splice(count, 1);
+        this.updateStorage();
+    },
+    updateStorage(){
+        localStorage.setItem("students", JSON.stringify(this.studentList));
+    },
+    clear(){
+        this.firstname = '';
+        this.lastname = '';
+        this.address = '';
+    },
+    async fetchStudents(){
+        const students = await this.$axios.$get('/getStudents' )
+        return students
+}
 }
 }
 </script>
