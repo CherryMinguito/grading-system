@@ -61,6 +61,7 @@
   
   <script scope>
     export default {
+      mounted() { console.log(this.fetchStudents()) },
       data() {
       return {
         stud: {fname: "", lname: "", course: "", address: "", edit: false},
@@ -76,7 +77,11 @@
       },
       removeStud(index){
         this.studs.splice(index, 1)
-      }
+      },
+      async fetchStudents(){
+        const students = await this.$axios.$get('/getStudents' )
+        return students
+}
     }
     }
   </script>
