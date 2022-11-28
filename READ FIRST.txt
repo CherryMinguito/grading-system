@@ -1,0 +1,3 @@
+Run this before npm run dev:
+
+set NODE_OPTIONS=--openssl-legacy-provider
