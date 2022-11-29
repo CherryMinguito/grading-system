@@ -161,8 +161,9 @@ export default {
   components: {
     Navbar,
   },
-  created() {
-    this.getStudents();
+  async created() {
+    var list = await this.fetchStudents();
+    this.studentList = list.student;
   },
   data() {
     return {
@@ -226,6 +227,12 @@ export default {
         }
       }
       this.clear();
+    },
+    async fetchStudents() {
+      const students = await this.$axios.$get(
+        "http://localhost:3001/getStudents"
+      );
+      return students;
     },
   },
 };
