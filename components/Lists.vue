@@ -10,7 +10,7 @@
 
                         <b-collapse id="nav-collapse" is-nav>
                         <b-navbar-nav>
-                            <b-nav-item href="Home">Home</b-nav-item>
+                            <b-nav-item href=""><NuxtLink to="/Home">Home</NuxtLink></b-nav-item>
                         </b-navbar-nav>
 
                         <!-- Right aligned nav items -->
@@ -131,8 +131,11 @@
     export default{
         name: 'Lists',
         created() {
-            this.getStudents();
-
+            //this.getStudents();
+        },
+        async mounted() {
+          var list = await this.fetchStudents();
+          this.studentList = list.student;
         },
         data(){
             return{
@@ -142,14 +145,19 @@
                 address: '',
                 boxOne: '',
                 boxTwo: '',
-
-                studentList: []
+                studentList: [{
+                  id: 1,
+                  firstName: 'John Lloyd',
+                  middleName: 'Diongzon',
+                  lastName: 'Cornejo',
+                  address: 'Mandaue City'}
+                ]
             }
         },
         methods: {
             getStudents(){
                 if (process.browser){
-                    var list = JSON.parse(localStorage.getItem("students"));
+                    var list = this.fetchStudents();
                 }
 
                 this.studentList = (list !== null)? list : [];
@@ -157,8 +165,8 @@
             addStudent(){
                 let student = {};
                 var newID;
-
-                if(this.studentList === null)
+                console.log(newID);
+                if(this.studentList.length === 0)
                 {
                     newID = 1;
                     student = {
@@ -167,7 +175,6 @@
                         middleName: this.mname,
                         lastName: this.lname,
                         address: this.address,
-                        
                     }
                 }
                 else
@@ -182,7 +189,7 @@
                     }
                 }
                 this.studentList.push(student);
-                this.updateStorage();
+                this.updateStorage(newID);
                 localStorage.setItem("latestID", newID);
                 this.clear();
                 this.showMsgBoxTwo();
@@ -256,7 +263,11 @@
                 this.fnamedit = '';
                 this.lnamedit = '';
                 this.addressedit = '';
-            }
+            },
+            async fetchStudents(){
+                const students = await this.$axios.$get('http://localhost:3001/getStudents');
+                return students;
+           }
         }
     }
 </script>
