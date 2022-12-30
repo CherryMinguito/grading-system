@@ -2,18 +2,16 @@
   <div class="sidebar">
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="active"> 
-             <NuxtLink to="/home">Home</NuxtLink>
+             <NuxtLink to="/home" data-cy="home">Home</NuxtLink>
         </li>
         <hr>
         <li>
-              <NuxtLink to="/dashboard">Dashboard</NuxtLink>
+              <NuxtLink to="/dashboard" data-cy="dashboard">Dashboard</NuxtLink>
         </li>
         <hr>
         <li>
-              <NuxtLink to="/students">Students</NuxtLink>
+              <NuxtLink to="/students" data-cy="students">Students</NuxtLink>
         </li>
-        <li><hr></li>
-              <NuxtLink to="/">Sign Out</NuxtLink>
       </ul>
 </div>
 </template>

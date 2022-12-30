@@ -1,66 +1,62 @@
 <template>
-  <form class="codehim-form">
-     <div class="form-title">
-        <div class="user-icon gr-bg">
-           <i class="fa fa-user"></i>
-        </div>
-        <div class="vertical-center">
-          <h2>LOGIN</h2>
-        </div>
+  
+  <div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+   <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+     <div class="card" style="border-radius: 1rem;">
+       <div class="card-body p-5 text-center">
+
+         <div class="mb-md-5 mt-md-4 pb-5">
+
+           <h2 class="fw-bold mb-5 ">LOG IN</h2>
+           
+
+           <div class="form-outline form-white mb-4">
+             <input id="email" data-cy="email" placeholder="Enter email address" class="form-control form-control-lg" />
+      
+           </div>
+
+           <div class="form-outline form-white mb-4">
+             <input id="password" data-cy="password" placeholder="Enter password" class="form-control form-control-lg" />
+            
+           </div>
+
+           <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+
+           <NuxtLink class="btn btn-success w-100" to="/Home" data-cy="login">Log in</NuxtLink>
+        
+          
+         </div>
+
+         <div>
+           <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+           </p>
+         </div>
+
+       </div>
      </div>
-     <label for="email"><i class="fa fa-envelope"></i> Email:</label>
-     <input type="email" id="email" class="cm-input" placeholder="Enter your email adress">
-     <label for="pass"><i class="fa fa-lock"></i> Password:</label>
-     <input id="pass" type="password" class="cm-input" placeholder="Enter your password">
-     <div class="row justify-content-center">
-        <div class="vertical-center">
-          <b-button type="button" @click="login">
-          <NuxtLink to="/home">Submit</NuxtLink>
-        </b-button>
-        </div>
-     </div>
-  </form>
+   </div>
+ </div>
+</div>
+ 
 </template>
 
-<script>
-  export default {
-    name: 'LoginPage'
-  }
-</script>
-  
+
+
 <style>
-  .codehim-form{
-      max-width: 400px;
-      min-height: 400px;
-      box-sizing: border-box;
-      background: rgba(233, 133, 133, 0.6);
-      box-shadow: 4px 2px 16px rgba(255, 0, 170, 0.4);
-      border-radius: 8px;
-      margin:  20px auto 0 auto;
-      padding: 25px;
-      color: #414141;
-          
-  }
-  
-  .cm-input{
-      display: block;
-      box-sizing: border-box;
-      padding: 10px;
-      width: 100%; 
-      margin: 14px auto;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      
-      
-  }
-  .cm-input:focus{
-      outline: 0;
-      border-color: #f9cb81;
-      
-  }
-  .cm-input:invalid{
-      border-color: #e41b17;
-      
-  }
-  
-  </style>
+body {
+background-color: #FFFFF0;
+}
+
+.btn{
+border: 2px solid #574646;
+color: white;
+background-color: #6d5252;
+}
+
+.card{
+background-color: #313131;
+color: white;
+}
+</style>
