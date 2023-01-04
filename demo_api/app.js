@@ -15,20 +15,13 @@ router.get("/getStudents", (ctx, next) => {
     student: [
       {
         id: 1,
-        firstname: "Client Vincent",
-        middlename: "Perez",
-        lastname: "Amores",
-        address: "Ibabao, Mandaue City",
-      },
-      {
-        id: 2,
         firstname: "Neo Frank",
         middlename: "Defensor",
         lastname: "Uy",
         address: "Tipolo, Mandaue City",
       },
       {
-        id: 3,
+        id: 2,
         firstname: "John Lloyd",
         middlename: "Brown",
         lastname: "Cornejo",
