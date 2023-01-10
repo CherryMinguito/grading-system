@@ -104,8 +104,8 @@ export default {
     },
 
     async fetchStud(){
-            const student= await this.$axios.$get('/getStudents')
-            return student
+            const students= await this.$axios.$get('/getStudents')
+            return students
         }
 
   },

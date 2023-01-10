@@ -1,17 +1,16 @@
 const koa = require('koa');
 const Router = require('koa-router');
-const rot = require('@koa/rot');
 
 var app = new koa();
 var route = new Router();
 
-router.get('/', (ctx, next)=>{
+route.get('/', (ctx, next)=>{
     console.log(ctx.request);
     ctx.body ="Hello Mandot"
 });
 
 
-router.get('/getStudents', (ctx, next)=>{
+route.get('/getStudents', (ctx, next)=>{
     console.log(ctx.request);
     ctx.body ={
 
@@ -35,7 +34,7 @@ router.get('/getStudents', (ctx, next)=>{
     }
 });
 
-app.use(router.route());
+app.use(route.routes());
 
 
 /*

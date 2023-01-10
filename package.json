@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@koa/cors": "^4.0.0",
     "@nuxtjs/axios": "^5.13.6",
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",
@@ -17,5 +18,8 @@
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "cypress": "^12.3.0"
   }
 }

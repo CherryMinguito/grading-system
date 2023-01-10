@@ -1,3 +1,5 @@
+
+
 <template>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
         <form class="border shadow p-3 rouneded bg-light">
@@ -5,13 +7,13 @@
           <div class="row justify-content-center">
                   <div class="col mb-3">
                       <label class="form-label text-dark">Email</label>
-                      <input class="form-control">
+                      <input id="email" class="form-control">
                   </div>
           </div>
           <div class="row justify-content-center">
                 <div class="col mb-3">
                   <label class="form-label text-dark">Password</label>
-                  <input class="form-control">
+                  <input id="password" class="form-control" type="password">
               </div>
           </div>
           <div class="row justify-cotent-center">
@@ -22,7 +24,7 @@
           <div class="row justify-content-center">
             <div class="col mb-3">
     
-              <b-button variant="outline-primary" @click="login">Login</b-button>
+              <b-button id="submitBtn" variant="outline-primary" to="/home">Login</b-button>
          
     
             </div>
@@ -32,7 +34,11 @@
     </template>
 
 <script>
+import { BButton } from 'bootstrap-vue';
 export default {
+  name:'IndexPage',
+ 
+ 
   data()
   {
       return {
@@ -43,9 +49,23 @@ export default {
         show: true
       }
     },
+    
+    components: {
+    BButton,
+  },
     methods: {
       login() {
-        // const ip = this.$axios.$post('/login', this.form)
+        this.$axios.$post('/login', this.form)
+        .then(response => {
+                // use the response data here
+                this.$router.push({name:'HomePage'});
+                this.$toast.success("Logged In Successfully",{});
+            })
+            .catch(error => {
+                console.log(error);
+                this.$toast.error("Invalid Credentials",{});
+                // handle error
+            });
       },
     }
 }
