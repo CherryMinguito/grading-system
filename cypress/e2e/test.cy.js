@@ -12,11 +12,11 @@ describe('Grading System Test', () => {
     cy.visit('http://localhost:3000/Sidebar');
   })
 
-  it('tests the dashboard page', () => {
+  it('display the dashboard page', () => {
     cy.get('[data-cy=dashboard]').click();
   })
 
-  it('tests the students page', () => {
+  it('display the students page', () => {
     cy.get('[data-cy=students]').click();
   })
 
