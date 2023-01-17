@@ -17,16 +17,32 @@ router.get('/getStudents', (ctx, next) =>{
     ctx.body = {
                 student:[
                             {
-                                fname: 'Anna',
-                                lname: 'Smith'
+                                id: '1190457',
+                                firstName: 'Lyndon',
+                                lastName: 'Dizon',
+                                studAddress: 'Apas, Cebu City',
+                                dateAdded: '12/09/2022'
                             },
                             {
-                                fname: 'John',
-                                lname: 'Smith'
+                                id: '1190444',
+                                firstName: 'Kenneth',
+                                lastName: 'Cosep',
+                                studAddress: 'Gun-ob, Lapu-Lapu City',
+                                dateAdded: '12/09/2022'
                             },
                             {
-                                fname: 'Sam',
-                                lname: 'Smith'
+                                id: '1190461',
+                                firstName: 'Ken',
+                                lastName: 'Torcende',
+                                studAddress: 'Bankal, Lapu-Lapu City',
+                                dateAdded: '12/09/2022'
+                            },
+                            {
+                                id: '1190450',
+                                firstName: 'Loinel John',
+                                lastName: 'Sanchez',
+                                studAddress: 'Looc, Mandaue City',
+                                dateAdded: '12/09/2022'
                             }
                         ]
                 }

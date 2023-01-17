@@ -6,7 +6,7 @@
         <div>
             <b-button v-b-modal.modal-1>Add New Student +</b-button>
 
-            <b-modal class="modal" id="modal-1" title="Add New Student" hide-footer>
+            <b-modal class="modal" id="modal-1" title="Add New Student" v-if="modalShow" hide-footer>
                 <label class="ml-5" for="firstname" >Firstname :</label>&nbsp;&nbsp;&nbsp;
                 <input class="ml-3" type="text" id="firstname" v-model="firstname"><br>
                 <label class="ml-5" for="lastname">Lastname   :</label>&emsp;&nbsp;
@@ -45,7 +45,7 @@
             
         </table>
         
-        <b-modal class="modal" id="modal-edit" title="Edit Student" hide-footer>
+        <b-modal class="modal" id="modal-edit" title="Edit Student" v-if="modalShow" hide-footer>
                             <label class="ml-5" for="firstname" >Firstname :</label>&nbsp;&nbsp;&nbsp;
                             <input value="Text" class="ml-3" type="text" id="firstname" v-model="firstname"><br>
                             <label class="ml-5" for="lastname">Lastname   :</label>&emsp;&nbsp;
@@ -56,7 +56,6 @@
                                     <button type="button" id="btn_add" class="btn btn-success" @click="updateStudent()" >Update</button>
                                 </div>
                             </b-modal>
-                            <button @click="fetchStudents()">Test</button>
     </div>
     
     </div>
@@ -67,21 +66,23 @@ import axios from 'axios';
 export default{
     name: 'StudentsPage',
 mounted() { console.log(this.fetchStudents()) },
+async created(){
+    var list = await this.fetchStudents();
+    this.studentList = list.student;
+},
 data(){
     return{
-        studentList: [
-            {
-                id: "1190457",
-                firstName: "Lyndon",
-                lastName: "Dizon",
-                studAddress: "Apas, Cebu City",
-                dateAdded: "11/06/2022"
-            }
-        ]
+        studentList: [],
+        modalShow : true
     }
 },
 methods: {
-    
+    getStudents(){
+        if(process.browser){
+            var list = JSON.parse(localStorage.getItem("students"));
+        }
+        this.studentList = list !== null ? list: [];
+    },
     async addStudent(){
 
         var today = new Date();
@@ -104,10 +105,12 @@ methods: {
     },
     editStudent(student, event)
     {
+        this.modalShow = true;
         this.idet = student.id;
         this.firstname = student.firstName
         this.lastname = student.lastName;
         this.address = student.studAddress;
+        
     },
     updateStudent()
     {
@@ -120,8 +123,8 @@ methods: {
                 this.studentList[i].studAddress = this.address;
             }
         }
-        this.clear();
         this.updateStorage();
+        this.clear();
     },
     deleteStudent(count)
     {
@@ -135,11 +138,14 @@ methods: {
         this.firstname = '';
         this.lastname = '';
         this.address = '';
+        this.modalShow = false;
     },
     async fetchStudents(){
-        const students = await this.$axios.$get('/getStudents' )
-        return students
-}
+        const students = await this.$axios.$get(
+            "http://localhost:3002/getStudents" 
+            );
+        return students;
+    }
 }
 }
 </script>

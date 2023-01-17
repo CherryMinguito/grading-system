@@ -18,6 +18,7 @@
               <a class="navbar-brand" href="#">DASHBOARD</a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>li>
               <div></div><div></div>
+              <router-link to="/Dashboard">HOME</router-link>
               <router-link to="/Students">STUDENTS</router-link>
               <router-link to="/">LOGOUT</router-link><br>
           </nav>
