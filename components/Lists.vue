@@ -123,6 +123,7 @@
 <script>
     export default{
         name: 'Lists',
+        mounted() { console.log(this.fetchStudents()) },
         created() {
             this.getStudents();
 
@@ -252,7 +253,7 @@
             },
 
             async fetchStudents(){
-                const students = await this.$axios.$get('http://localhost:3001/getStudents');
+                const students = await this.$axios.$get('http://localhost:3002/getStudents');
                 return students;
             }
         }
