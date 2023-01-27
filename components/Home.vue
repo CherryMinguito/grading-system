@@ -23,20 +23,35 @@
   <br>
   <b-form-input v-model="editStud" id="idet" placeholder="Full Name"></b-form-input>
   <br>
-  <ul>
-    {{newStud}}
+  <table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Actions</th>
+    
+
+    </tr>
+  </thead>
+  <tbody>
+    
     <br>
-    {{editStud}}
-    <li v-for="(item, id) in students" :key="item.id">{{item.id}} {{item.Fullname}}
-    <button @click="editStude(item)" :key="item.id">Assign</button>
-    <button @click="updateStud()">Update</button>
-    <button v-on:click="students.pop({id:item.id, Fullname: newStud})">Delete</button>
-    </li>
-  </ul>
+    
+    <tr v-for="(item, id) in students" :key="item.id">
+      <td>{{item.id}}</td>
+      <td>{{item.Fullname}}</td>
+      <td class="actionbtns">
+        <button class="addbtn" @click="editStude(item)">Assign</button>
+        <button class="edtbtn" @click="updateStud()">Update</button>
+        <button class="delbtn" @click ="deleteStud(item)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
         </div>
 
-        <button @click="fetchStud()">Fetch</button>
+        <button class="fetchbtn" @click="fetchStud()">Fetch</button>
   </div>
 </template>
 
@@ -48,6 +63,72 @@ div.container{
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+.addbtn{
+  background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 5px 5px; /* Some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Set font size */
+    margin: 4px 2px; /* Add some margin */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s ease;
+}
+.edtbtn
+{
+  background-color: #bada08; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 5px 5px; /* Some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Set font size */
+    margin: 4px 2px; /* Add some margin */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s ease;
+}
+.delbtn{
+  background-color: #f5540a; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 5px 5px; /* Some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Set font size */
+    margin: 4px 2px; /* Add some margin */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s ease;
+}
+.fetchbtn{
+  background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 5px 5px; /* Some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Set font size */
+    margin-left: 450px;
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s ease;
+}
+.actionbtns, .fetchbtn
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover{
+  background-color: #030703;
+}
+table{
+  width:100%;
 }
 
 
@@ -66,6 +147,13 @@ export default {
   //name: 'NuxtLink',
   //extends: Vue.component('RouterLink'),
   mounted() { console.log(this.fetchStud()) },
+
+
+  async created() {
+    var list = await this.fetchStud();
+    this.students = list.students;
+    },
+
 
   data() {
     return {
@@ -98,16 +186,30 @@ export default {
 
     },
 
-    deleteStud(){
+    deleteStud(item , event){
 
+      this.idet = item.id;
+
+      for(var i = 0; i < this.students.length; i++)
+                {
+                  if(this.students[i].id === this.idet)
+                  {
+                  this.students.splice(i,1);
+                  }
+                }
+      
 
     },
+  
 
     async fetchStud(){
             const students= await this.$axios.$get('/getStudents')
-            return students
-        }
 
+         
+            return students;
+        } ,
+        
+  
   },
 
   

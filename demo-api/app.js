@@ -21,16 +21,13 @@ route.get('/getStudents', (ctx, next)=>{
 
         students:[
         {
-            fname:'Anna',
-            lname:'Smith'
+            Fullname: 'Mandot Gwapo'
         },
         {
-            fname:'Jamb',
-            lname:'Smith'
+            Fullname: 'Osmand Cutie'
         },
         {
-            fname:'Boree',
-            lname:'Smith'
+            Fullname: 'Im the cutest, osmand'
         },
 
     ]
