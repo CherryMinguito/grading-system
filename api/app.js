@@ -26,16 +26,19 @@ router.get('/getStudents', (ctx, next) =>{
         student:[{
             id: 1,
             firstName: 'Christine Alissa',
+            middleName: 'Abas',
             lastName: 'Caintapan',
             address: 'Buhisan, Cebu City'
         },{
             id: 2,
             firstName: 'Lyca May',
+            middleName:'',
             lastName: 'Roslinda',
             address: 'Lapu Lapu City'
         },{
             id: 3,
             firstName: 'Reiame',
+            middleName:'',
             lastName: 'Delfin',
             address: 'Looc, Mandaue City'
         }
