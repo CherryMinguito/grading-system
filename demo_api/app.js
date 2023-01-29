@@ -1,34 +1,34 @@
-const Koa = require('koa');
+const koa = require('koa');
 const Router = require('koa-router');
+const cors = require('@koa/cors');
 
-const app = new Koa();
-const router = new Router();
+var app = new koa();
+var route = new Router();
 
-router.get('/', (ctx, next) => {
+
+app.use(cors());
+
+route.get('/', (ctx, next)=>{
     console.log(ctx.request);
-    ctx.body = "Hello World"
+    ctx.body ="Hello World!"
 });
 
-router.get('/getStudents', (ctx, next) =>{
+
+route.get('/Students', (ctx, next)=>{
     console.log(ctx.request);
-    ctx.body = {
-                student:[
-                            {
-                                fname: 'Anna',
-                                lname: 'Smith'
-                            },
-                            {
-                                fname: 'John',
-                                lname: 'Smith'
-                            },
-                            {
-                                fname: 'Sam',
-                                lname: 'Smith'
-                            }
-                        ]
-                }
+    ctx.status = 200;
+    ctx.body ={
+
+        students:[
+        {
+            Fullname: 'Zhanea Cyrein Delfin'
+        },
+
+    ]      
+    }
 });
 
-app.use(router.routes())
 
-app.listen(3002);
+app.use(route.routes());
+
+app.listen(3001);
