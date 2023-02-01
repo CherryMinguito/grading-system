@@ -31,10 +31,24 @@ export default {
   buildModules: [
   ],
 
+  publicRuntimeConfig:{
+    axios:{
+      proxy:true,
+    },
+    proxy:{
+      "/api": 'http://localhost:3004/'
+    }
+  },
+
+  axios: {
+    baseURL: 'http://localhost:3004/', 
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

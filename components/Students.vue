@@ -83,13 +83,16 @@
   
   <script>
   import { clear } from 'console';
-import { send } from 'q';
+  import { send } from 'q';
   import Sidebar from './Sidebar';
+  import axios from 'axios';
   export default {
     name: 'StudentsPage',
     components: {
       Sidebar,
     },
+    mounted() { 
+        console.log(this.fetchSomething()) },
     data() {
         return {
             studentList: [],
@@ -133,11 +136,6 @@ import { send } from 'q';
          this.studentList.push(student);
          this.studentList.splice(index, 1);
          this.clear();
-        // this.studentList.splice(this.studentList.indexOf(student),1, {
-        //     'firstName': this.studentList.firstname,
-        //     'lastname' : this.studentList.lastname,
-        //     'id' : this.studentList.id,
-        // })
         }, 
         clear(){
             this.studentList.firstname='';
@@ -145,7 +143,11 @@ import { send } from 'q';
         },
         sendID(){
             this.send = this.student;
-        }
+        },
+        async fetchSomething() {
+        const students = await this.$axios.$get('/getStudents');
+        return students
+        },
     }
 }
   
